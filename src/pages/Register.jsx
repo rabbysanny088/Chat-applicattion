@@ -3,7 +3,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { auth, db, storage } from "../firebase";
 import Add from "../img/undraw_Male_avatar_g98d.png";
@@ -97,13 +97,12 @@ const Register = () => {
           </form>
           <p>
             You do have an account?{" "}
-            <Link to="/login">
-              <span
-                style={{ color: "blue", fontWeight: "bold", cursor: "pointer" }}
-              >
-                Login
-              </span>
-            </Link>
+            <span
+              onClick={() => navigate("/login")}
+              style={{ color: "blue", fontWeight: "bold", cursor: "pointer" }}
+            >
+              Login
+            </span>
           </p>
         </Spin>
       </div>

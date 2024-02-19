@@ -1,7 +1,7 @@
 import { Spin, message } from "antd";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { auth } from "../firebase";
 
@@ -62,13 +62,12 @@ const Login = () => {
           </form>
           <p>
             You do have an account?{" "}
-            <Link to="/register">
-              <span
-                style={{ color: "blue", fontWeight: "bold", cursor: "pointer" }}
-              >
-                Register
-              </span>
-            </Link>
+            <span
+              onClick={() => navigate("/")}
+              style={{ color: "blue", fontWeight: "bold", cursor: "pointer" }}
+            >
+              Register
+            </span>
           </p>
         </Spin>
       </div>
